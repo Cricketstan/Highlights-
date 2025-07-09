@@ -23,5 +23,7 @@ def admin():
             return redirect(url_for('index'))
     return render_template('admin.html')
 
+# Run the app - bind to 0.0.0.0 and use dynamic port for Render
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
